@@ -1,31 +1,60 @@
-import { Text, Avatar, Group, TypographyStylesProvider, Paper } from '@mantine/core';
-import classes from './main.module.css';
+import React from 'react';
+import { Paper,  } from '@mui/material';
+import { TextInput } from '../../components/input/TextInput';
+import { MessageLeft, MessageRight } from '../../components/message/MessageCell';
+import './main.module.css';
 
-export function MainPage() {
+
+
+const question = {
+  question: "What is the capital of France?",
+  options: ["New York", "London", "Paris", "Dublin"],
+  correct: 2
+}
+
+export  function MainPage() {
+  const handleChange = event => {
+    this.setState({ selectedValue: event.target.value });
+  };
+  
   return (
-    <Paper withBorder radius="md" className={classes.comment}>
-      <Group>
-        <Avatar
-          src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-2.png"
-          alt="Jacob Warnhalter"
-          radius="xl"
-        />
-        <div>
-          <Text fz="sm">Jacob Warnhalter</Text>
-          <Text fz="xs" c="dimmed">
-            10 minutes ago
-          </Text>
-        </div>
-      </Group>
-      <TypographyStylesProvider className={classes.body}>
-        <div
-          className={classes.content}
-          dangerouslySetInnerHTML={{
-            __html:
-              '<p>I use <a href="https://heroku.com/" rel="noopener noreferrer" target="_blank">Heroku</a> to host my Node.js application, but MongoDB add-on appears to be too <strong>expensive</strong>. I consider switching to <a href="https://www.digitalocean.com/" rel="noopener noreferrer" target="_blank">Digital Ocean</a> VPS to save some cash.</p>',
-          }}
-        />
-      </TypographyStylesProvider>
-    </Paper>
+  <div className="container">
+      <Paper square={false} className="paper" zDepth={2}
+      sx = {{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
+        padding: '10px',
+        overflow: 'hidden',
+      }}>
+        <Paper className="messagesBody">
+          <MessageLeft
+            message="Welcome to the quiz! Please provide an answer given the question.  This is a quick quiz to test your knowledge of world capitals."
+            timestamp="MM/DD 00:00"
+          />
+          <MessageRight
+            message="Hi this is is a test reply"
+            timestamp="MM/DD 00:00"
+            photoURL="https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s=s96-c"
+            displayName="まさりぶ"
+            avatarDisp={true}
+          />
+          <MessageLeft
+            message="Given this flag emoji 🇫🇷, what is the capital of France?"
+            timestamp="MM/DD 00:00"
+          />
+          <MessageRight
+            message="Paris"
+            timestamp="MM/DD 00:00"
+            photoURL="https://lh3.googleusercontent.com/a-/AOh14Gi4vkKYlfrbJ0QLJTg_DLjcYyyK7fYoWRpz2r4s=s96-c"
+            displayName="まさりぶ"
+            avatarDisp={false}
+          />
+        </Paper>
+        <TextInput />
+      </Paper>
+    </div>
   );
 }

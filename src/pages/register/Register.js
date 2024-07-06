@@ -1,43 +1,87 @@
-import {
-  TextInput,
-  PasswordInput,
-  Checkbox,
-  Anchor,
-  Paper,
-  Title,
-  Text,
-  Container,
-  Group,
-  Button,
-} from '@mantine/core';
-import classes from './register.module.css';
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import QuizIcon from '@mui/icons-material/Quiz';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+
+const defaultTheme = createTheme();
 
 export function Register() {
-  return (
-    <Container size={420} my={40}>
-      <Title ta="center" className={classes.title}>
-        Welcome back!
-      </Title>
-      <Text c="dimmed" size="sm" ta="center" mt={5}>
-        Do not have an account yet?{' '}
-        <Anchor size="sm" component="button">
-          Create account
-        </Anchor>
-      </Text>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
+  };
 
-      <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <TextInput label="Email" placeholder="you@mantine.dev" required />
-        <PasswordInput label="Password" placeholder="Your password" required mt="md" />
-        <Group justify="space-between" mt="lg">
-          <Checkbox label="Remember me" />
-          <Anchor component="button" size="sm">
-            Forgot password?
-          </Anchor>
-        </Group>
-        <Button fullWidth mt="xl" variant='filled'>
-          Sign in
-        </Button>
-      </Paper>
-    </Container>
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <QuizIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Welcome!
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="firstname"
+              label="First Name"
+              name="firstname"
+              autoComplete="firstname"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="lastname"
+              label="Last Name"
+              name="lastname"
+              autoComplete="lastname"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Join Quiz
+            </Button>
+          </Box>
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 }
