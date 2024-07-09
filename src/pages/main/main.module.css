@@ -1,8 +1,7 @@
   .paper {
     overflow: hidden !important;
-    width: 100%;
+    //width: 100%;
     height: 80vh;
-    max-width: 500px;
     max-height: 700px;
     display: flex;
     align-items: center;

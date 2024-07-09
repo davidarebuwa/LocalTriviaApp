@@ -3,8 +3,11 @@
     justify-content: center;
     width: 85%;
     margin: auto;
-    padding: 10px;}
+    padding: 10px;
+}
+    
 
 .wrapText {
-    width: 100%;
+    width: 40vw;
+    margin-right: 10px;
 }

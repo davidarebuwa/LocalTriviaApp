@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -8,18 +9,32 @@ import QuizIcon from '@mui/icons-material/Quiz';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useLocalStorage } from "../../utils/useLocalStorage";
+
 
 
 const defaultTheme = createTheme();
 
 export function Register() {
+  const navigate = useNavigate();
+  const [firstName, setFirstName] = useLocalStorage('firstname', '');
+  const [lastName, setLastName] = useLocalStorage('lastname', '');
+  const [email, setEmail] =   useLocalStorage('email', '');
+
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get('email'),
-      password: data.get('password'),
+      name: data.get('firstname') + ' ' + data.get('lastname'),
     });
+    if (data.get('email') === '' || data.get('firstname') === '' || data.get('lastname') === '') {
+      alert('Please fill in all fields');
+      return;
+    } 
+    navigate('/home');
   };
 
   return (
@@ -50,6 +65,8 @@ export function Register() {
               name="firstname"
               autoComplete="firstname"
               autoFocus
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -60,6 +77,8 @@ export function Register() {
               name="lastname"
               autoComplete="lastname"
               autoFocus
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -70,6 +89,8 @@ export function Register() {
               name="email"
               autoComplete="email"
               autoFocus
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <Button
               type="submit"

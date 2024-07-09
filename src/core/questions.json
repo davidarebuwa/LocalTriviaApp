@@ -1,0 +1,26 @@
+{
+  "question-one": {
+    "question": "What country's flag is this emoji 🇺🇸?",
+    "options": ["United States", "USA", "America", "United States of America"]
+  },
+  "question-two": {
+    "question": "What country's flag is this emoji 🇨🇦?",
+    "options": ["Canada", "Canadian", "Canada Flag", "Canadian Flag"]
+  },
+  "question-three": {
+    "question": "What country's flag is this emoji 🇬🇧?",
+    "options": ["United Kingdom", "UK", "Britain", "British"]
+  },
+  "question-four": {
+    "question": "What country's flag is this emoji 🇦🇺?",
+    "options": ["Australia", "Australian", "Australia Flag", "Australian Flag"]
+  },
+  "question-five": {
+    "question": "What country's flag is this emoji 🇯🇵?",
+    "options": ["Japan", "Japanese", "Japan Flag", "Japanese Flag"]
+  },
+  "question-six": {
+    "question": "What country's flag is this emoji 🇮🇳?",
+    "options": ["India", "Indian", "India Flag", "Indian Flag"]
+  }
+}

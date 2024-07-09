@@ -1,5 +1,5 @@
 .messageRow {
-    display: "flex"
+    display: "flex";
   }
 
   .messageRowRight {
@@ -11,6 +11,7 @@
     position: relative;
     margin-left: 20px;
     margin-bottom: 10px;
+    margin-top: 10px;
     padding: 12px;
     background-color: #A8DDFD;
     width: 80%;
@@ -19,7 +20,6 @@
     border: 1px solid #97C6E3;
     border-radius: 10px;
 }
-
 
 .messageOrange {
     position: relative;
@@ -63,7 +63,18 @@
     height: 20px;
 }
 
-.displayName {
+.displayNameStyle {
+    text-align: start;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.displayNameStyleRight {
+    text-align: end;
+    padding: 10px;
+    margin-top: 10px;
     margin-left: 20px;
     margin-bottom: 10px;
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import TextField from '@mui/material/TextField';
-import { styled } from "@mui/material/styles";
 import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
 import './TextInput.css';
@@ -12,14 +11,14 @@ export const TextInput = () => {
             <form className="wrapForm"  noValidate autoComplete="off">
             <TextField
                 id="standard-text"
-                label="Enter your messages here"
+                label="Enter your answers here"
                 className="wrapText"
             />
             <Button variant="contained" color="primary"
             sx={{
                 height: '100%',
-                width: '10%',
-                marginRight: '10px',
+                width: '5%',
+                margin: '20px',
                 marginTop: '10px',
             }}
             >

@@ -12,7 +12,7 @@ export const MessageLeft = (props) => {
       <div className="messageRow">
        
         <div>
-          <div className="displayNameStyle">{displayName}</div>
+          {/* <div className="displayNameStyle">{displayName}</div> */}
           <div className="messageBlue">
             <div>
               <p className="messageContent">{message}</p>
@@ -28,8 +28,11 @@ export const MessageLeft = (props) => {
 export const MessageRight = (props) => {
   const message = props.message ? props.message : "no message";
   const timestamp = props.timestamp ? props.timestamp : "";
+  const displayName = props.displayName ? props.displayName : "QuizBot";
+
   return (
     <div className="messageRowRight">
+      {/* <div className="displayNameStyleRight">{displayName} </div> */}
       <div className="messageOrange">
         <p className="messageContent">{message}</p>
         <div className="messageTimeStampRight">{timestamp}</div>
